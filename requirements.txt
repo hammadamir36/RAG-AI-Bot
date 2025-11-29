@@ -1,0 +1,17 @@
+faiss-cpu==1.7.4
+sentence-transformers==2.2.2
+transformers==4.40.1
+torch>=2.0.0
+openai>=0.27.0
+PyPDF2>=3.0.0
+tqdm
+requests
+numpy
+scikit-learn
+Flask==2.3.3
+Werkzeug==2.3.7
+python-docx==0.8.11
+openpyxl==3.1.2
+python-pptx==0.6.21
+csvkit==1.1.0
+beautifulsoup4==4.12.2

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Document Query System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 RAG Document Query System</h1>
+                <p class="subtitle">Upload documents and ask questions powered by AI</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Status Section -->
+            <div class="status-card" id="statusCard">
+                <div class="status-info">
+                    <span class="status-label">Status:</span>
+                    <span class="status-value" id="statusValue">Loading...</span>
+                </div>
+                <div class="status-details" id="statusDetails"></div>
+            </div>
+
+            <div class="content-grid">
+                <!-- Upload Section -->
+                <section class="upload-section">
+                    <h2>📤 Upload Documents</h2>
+                    <p class="help-text">Supported formats: PDF, TXT, MD, CSV, JSON, DOCX, XLSX, HTML, DOC, PPT, PPTX</p>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-text">Drag and drop files here or click to select</p>
+                        <input type="file" id="fileInput" multiple accept=".pdf,.txt,.md,.csv,.json,.docx,.xlsx,.html,.doc,.ppt,.pptx" />
+                    </div>
+
+                    <div id="fileList" class="file-list"></div>
+
+                    <div class="button-group">
+                        <button id="uploadBtn" class="btn btn-primary">Upload Files</button>
+                        <button id="buildIndexBtn" class="btn btn-success">Build Index</button>
+                        <button id="clearBtn" class="btn btn-danger">Clear All</button>
+                    </div>
+
+                    <div id="uploadProgress" class="progress-container" style="display: none;">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <span id="progressText" class="progress-text">0%</span>
+                    </div>
+
+                    <div id="uploadMessage" class="message"></div>
+                </section>
+
+                <!-- Query Section -->
+                <section class="query-section">
+                    <h2>❓ Ask Questions</h2>
+                    
+                    <div class="query-input-group">
+                        <input 
+                            type="text" 
+                            id="queryInput" 
+                            class="query-input" 
+                            placeholder="Ask a question about your documents..."
+                            disabled
+                        />
+                        <button id="submitBtn" class="btn btn-primary" disabled>Submit</button>
+                    </div>
+
+                    <div id="queryResults" class="query-results">
+                        <div id="resultsList"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 RAG Document Query System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
